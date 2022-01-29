@@ -27,6 +27,7 @@ struct RegisterView: View {
                     .multilineTextAlignment(.center)
                 Text("\(countCharacter)")
                     .foregroundColor(color)
+                    .padding(.trailing, 20)
             }
             Button(action: registerUser) {
                 HStack {
