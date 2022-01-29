@@ -9,11 +9,11 @@ import SwiftUI
 
 struct StarterView: View {
         
-    private let user = StorageManager.shared.fetchData()
+    @EnvironmentObject var userManager: UserManager
     
     var body: some View {
         Group {
-            if user.isRegister {
+            if userManager.isRegister {
                 ContentView()
             } else {
                 RegisterView()
@@ -25,5 +25,6 @@ struct StarterView: View {
 struct StarterView_Previews: PreviewProvider {
     static var previews: some View {
         StarterView()
+            .environmentObject(UserManager())
     }
 }

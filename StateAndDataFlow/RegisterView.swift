@@ -41,9 +41,11 @@ struct RegisterView: View {
     
     private func registerUser() {
         if !name.isEmpty {
-            userManager.name = name
             userManager.isRegister.toggle()
-            StorageManager.shared.saveData(User(name: name, isRegister: true))
+            StorageManager.shared.saveData(
+                newName: name,
+                newState: userManager.isRegister
+            )
         }
     }
     

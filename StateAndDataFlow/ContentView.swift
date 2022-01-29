@@ -12,11 +12,11 @@ struct ContentView: View {
     
     @EnvironmentObject private var userManager: UserManager
     
-    private let user = StorageManager.shared.fetchData()
+    private let storage = StorageManager.shared
     
     var body: some View {
         VStack {
-            Text("Hi, \(user.name)")
+            Text("Hi, \(storage.name)")
                 .font(.largeTitle)
                 .padding(.top, 50)
             Text("\(timer.counter)")
@@ -30,8 +30,8 @@ struct ContentView: View {
     }
     
     private func removeUser() {
-        StorageManager.shared.removeData()
         userManager.isRegister.toggle()
+        storage.removeData()
     }
 }
 
