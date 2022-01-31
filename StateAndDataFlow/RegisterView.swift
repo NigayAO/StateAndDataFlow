@@ -11,50 +11,26 @@ struct RegisterView: View {
     
     @EnvironmentObject private var userManager: UserManager
         
-    @State private var name = ""
-    @State private var countCharacter = 0
-    @State private var color = Color.red
-    @State private var enableButton = true
-        
     var body: some View {
         VStack {
-            HStack {
-                TextField("Enter your name", text: $name)
-                    .onChange(of: name.count, perform: { newValue in
-                        countCharacter = newValue
-                        updateUI()
-                    })
-                    .multilineTextAlignment(.center)
-                Text("\(countCharacter)")
-                    .foregroundColor(color)
-                    .padding(.trailing, 20)
-            }
+            TextFieldView(
+                name: $userManager.user.name,
+                isValid: userManager.counter
+            )
             Button(action: registerUser) {
                 HStack {
                     Image(systemName: "checkmark.circle")
                     Text("OK")
                 }
             }
-            .disabled(enableButton)
+            .disabled(!userManager.counter)
         }
     }
     
     private func registerUser() {
-        if !name.isEmpty {
-            userManager.isRegister.toggle()
-            StorageManager.shared.saveData(
-                newName: name,
-                newState: userManager.isRegister
-            )
-        }
-    }
-    
-    private func updateUI() {
-        if countCharacter > 2 {
-            color = .green
-            enableButton = false
-        } else {
-            color = .red
+        if !userManager.user.name.isEmpty {
+            userManager.user.isRegister.toggle()
+            StorageManager.shared.saveData(user: userManager.user)
         }
     }
 }
@@ -63,5 +39,21 @@ struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView()
             .environmentObject(UserManager())
+    }
+}
+
+struct TextFieldView: View {
+    
+    @Binding var name: String
+    var isValid: Bool
+    
+    var body: some View {
+        HStack {
+            TextField("Enter your name", text: $name)
+                .multilineTextAlignment(.center)
+            Text("\(name.count)")
+                .foregroundColor(isValid ? .green : .red)
+                .padding(.trailing, 20)
+        }
     }
 }

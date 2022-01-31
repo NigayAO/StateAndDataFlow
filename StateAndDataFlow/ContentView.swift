@@ -11,12 +11,10 @@ struct ContentView: View {
     @StateObject private var timer = TimeCounter()
     
     @EnvironmentObject private var userManager: UserManager
-    
-    private let storage = StorageManager.shared
-    
+        
     var body: some View {
         VStack {
-            Text("Hi, \(storage.name)")
+            Text("Hi, \(userManager.user.name)")
                 .font(.largeTitle)
                 .padding(.top, 50)
             Text("\(timer.counter)")
@@ -30,8 +28,8 @@ struct ContentView: View {
     }
     
     private func removeUser() {
-        userManager.isRegister.toggle()
-        storage.removeData()
+        StorageManager.shared.clearData(userManager: userManager)
+        
     }
 }
 
