@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D08BDEA27A7F29A001F853E /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D08BDE927A7F29A001F853E /* ButtonView.swift */; };
+		1D08BDEC27A7F41A001F853E /* ButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D08BDEB27A7F41A001F853E /* ButtonAppearance.swift */; };
 		1D3148F227A4301D00698F30 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3148F127A4301D00698F30 /* RegisterView.swift */; };
 		1D3148F427A4562000698F30 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3148F327A4562000698F30 /* UserManager.swift */; };
 		1D3148F627A4593300698F30 /* StarterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3148F527A4593300698F30 /* StarterView.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D08BDE927A7F29A001F853E /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1D08BDEB27A7F41A001F853E /* ButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAppearance.swift; sourceTree = "<group>"; };
 		1D3148F127A4301D00698F30 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		1D3148F327A4562000698F30 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1D3148F527A4593300698F30 /* StarterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 				1D3148F527A4593300698F30 /* StarterView.swift */,
 				1D3148F127A4301D00698F30 /* RegisterView.swift */,
 				1D78D12527A3E91500478058 /* ContentView.swift */,
+				1D08BDE927A7F29A001F853E /* ButtonView.swift */,
+				1D08BDEB27A7F41A001F853E /* ButtonAppearance.swift */,
 				1D78D13127A3F0BB00478058 /* TimeCounter.swift */,
 				1D3148F327A4562000698F30 /* UserManager.swift */,
 				1D3148F927A45E4100698F30 /* StorageManager.swift */,
@@ -154,7 +160,9 @@
 			files = (
 				1D78D13227A3F0BB00478058 /* TimeCounter.swift in Sources */,
 				1D3148F227A4301D00698F30 /* RegisterView.swift in Sources */,
+				1D08BDEA27A7F29A001F853E /* ButtonView.swift in Sources */,
 				1D3148F627A4593300698F30 /* StarterView.swift in Sources */,
+				1D08BDEC27A7F41A001F853E /* ButtonAppearance.swift in Sources */,
 				1D3148FA27A45E4100698F30 /* StorageManager.swift in Sources */,
 				1D78D12627A3E91500478058 /* ContentView.swift in Sources */,
 				1D3148F427A4562000698F30 /* UserManager.swift in Sources */,

@@ -21,15 +21,14 @@ struct ContentView: View {
                 .font(.largeTitle)
             .padding(.top, 50)
             Spacer()
-            ButtonView(timer: timer)
+            ButtonView(title: timer.buttonTitle, color: .red) {
+                timer.startTimer()
+            }
             Spacer()
-            logOutButtonView(action: removeUser)
+            ButtonView(title: "LogOut", color: .blue) {
+                StorageManager.shared.clearData(userManager: userManager)
+            }
         }
-    }
-    
-    private func removeUser() {
-        StorageManager.shared.clearData(userManager: userManager)
-        
     }
 }
 
@@ -40,37 +39,21 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct ButtonView: View {
-    @ObservedObject var timer: TimeCounter
-    var body: some View {
-        Button(action: timer.startTimer) {
-            Text(timer.buttonTitle)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-        }
-        .frame(width: 200, height: 60)
-        .background(Color.red)
-        .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black, lineWidth: 4))
-    }
-}
+//struct ButtonView: View {
+//    @ObservedObject var timer: TimeCounter
+//    var body: some View {
+//        Button(action: timer.startTimer) {
+//            Text(timer.buttonTitle)
+//                .font(.title)
+//                .fontWeight(.bold)
+//                .foregroundColor(.white)
+//        }
+//        .frame(width: 200, height: 60)
+//        .background(Color.red)
+//        .cornerRadius(20)
+//        .overlay(RoundedRectangle(cornerRadius: 20)
+//                    .stroke(Color.black, lineWidth: 4))
+//    }
+//}
 
-struct logOutButtonView: View {
-    let action: () -> Void
-    var body: some View {
-        Button(action: action) {
-            Text("LogOut")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-        }
-        .frame(width: 200, height: 60)
-        .background(Color.blue)
-        .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black, lineWidth: 4))
-        .padding(.bottom, 20)
-    }
-}
+
